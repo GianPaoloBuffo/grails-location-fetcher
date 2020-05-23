@@ -8,7 +8,7 @@ import java.time.DayOfWeek
 
 class DayOfWeekCellProcessor extends CellProcessorAdaptor {
 
-    private static final String ERROR_MESSAGE = 'Input should be of type java.time.DayOfWeek';
+    private static final String ERROR_MESSAGE = 'Input should be of type java.time.DayOfWeek'
 
     @Override
     Object execute(Object value, CsvContext context) {
