@@ -31,11 +31,9 @@ configurations {
 
 dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+    compile "io.micronaut:micronaut-http-client"
     compile "net.sf.supercsv:super-csv:2.4.0"
     compile "net.sf.supercsv:super-csv-dozer:2.4.0"
-    compile "com.opencsv:opencsv:4.1"
-    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-csv"
-    compile "io.micronaut:micronaut-http-client"
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
