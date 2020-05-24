@@ -4,10 +4,8 @@ import com.stehno.ersatz.ErsatzServer
 import com.stehno.ersatz.cfg.ContentType
 import com.stehno.ersatz.encdec.Encoders
 import grails.testing.services.ServiceUnitTest
+import locationfetcher.util.MockLocation
 import spock.lang.Specification
-
-import java.time.DayOfWeek
-import java.time.LocalTime
 
 class LocationFetcherServiceSpec extends Specification implements ServiceUnitTest<LocationFetcherService> {
 
@@ -50,17 +48,7 @@ class LocationFetcherServiceSpec extends Specification implements ServiceUnitTes
 
         then:
         location
-
-        location.city == 'Kempen'
-        location.keywords == []
-        location.lat == 51.3740233
-        location.lng == 6.4182039
-        location.name == 'OBI Markt Kempen'
-        location.streetAndNumber == 'Kleinbahnstraße 32'
-        location.zip == '47906'
-        location.openingHours[0].dayOfWeek == DayOfWeek.MONDAY
-        location.openingHours[0].from1 == LocalTime.of(8, 0)
-        location.openingHours[0].to1 == LocalTime.of(20, 0)
+        location == MockLocation.create()
 
         and:
         ersatz.verify()

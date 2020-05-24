@@ -1,5 +1,8 @@
 package locationfetcher.location
 
+import groovy.transform.EqualsAndHashCode
+
+@EqualsAndHashCode
 class Location {
 
     String name
