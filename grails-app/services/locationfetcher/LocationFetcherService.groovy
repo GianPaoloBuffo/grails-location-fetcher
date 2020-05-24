@@ -22,9 +22,7 @@ class LocationFetcherService implements GrailsConfigurationAware {
 
     @Override
     void setConfiguration(Config co) {
-        def url = co.getProperty(HOST, String)
-
-        this.client = HttpClient.create(url.toURL()).toBlocking()
+        setupHttpClient(co.getProperty(HOST, String))
         this.locationsUri = co.getProperty(LOCATIONS_URI, String)
         this.privateKey = co.getProperty(PRIVATE_KEY, String)
     }
@@ -38,6 +36,10 @@ class LocationFetcherService implements GrailsConfigurationAware {
             log.error(e)
             []
         }
+    }
+
+    private void setupHttpClient(url) {
+        this.client = HttpClient.create(url.toURL()).toBlocking()
     }
 
     private HttpRequest httpRequest(params) {
